@@ -1,0 +1,429 @@
+/* 🌿 Global styling */
+body {
+  margin: 0;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: #2d3436;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  background-color: #f7f9fb;
+
+  /* 🎨 Soft abstract wave art background */
+  background-image: 
+    radial-gradient(circle at 20% 20%, rgba(255, 210, 230, 0.4), transparent 40%),
+    radial-gradient(circle at 80% 0%, rgba(189, 224, 254, 0.4), transparent 40%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%23b8e1ff' fill-opacity='0.35' d='M0,96L80,122.7C160,149,320,203,480,213.3C640,224,800,192,960,160C1120,128,1280,96,1360,80L1440,64L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z'%3E%3C/path%3E%3C/svg%3E"),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%23ffd6e0' fill-opacity='0.25' d='M0,256L60,245.3C120,235,240,213,360,186.7C480,160,600,128,720,133.3C840,139,960,181,1080,192C1200,203,1320,181,1380,170.7L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z'%3E%3C/path%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: top, center, bottom;
+  background-size: cover, cover, cover;
+  background-attachment: fixed;
+}
+
+/* 🏠 Main container */
+.app-container {
+  width: 100%;
+  max-width: 1000px;
+  margin-top: 60px;
+  padding: 40px 30px 80px;
+  text-align: center;
+  backdrop-filter: blur(8px);
+  animation: fadeIn 0.8s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* 📁 Folder list layout */
+.folder-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 40px;
+  justify-items: center;
+  margin-top: 50px;
+}
+
+/* Folder card */
+.folder-card {
+  background: rgba(173, 216, 230, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 20px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  padding: 50px 20px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.35s ease;
+  width: 100%;
+  max-width: 240px;
+  color: #1f2937;
+  backdrop-filter: blur(12px);
+}
+
+.folder-card:hover {
+  transform: scale(1.15) translateY(-8px);
+  background: rgba(173, 216, 230, 0.9);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.2);
+}
+
+/* 📄 Document list */
+.doc-list {
+  list-style: none;
+  padding: 0;
+  margin: 50px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  align-items: center;
+}
+
+.doc-list li {
+  background: rgba(187, 210, 255, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  padding: 24px 28px;
+  border-radius: 16px;
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 85%;
+  max-width: 700px;
+  transition: all 0.35s ease;
+  backdrop-filter: blur(10px);
+}
+
+.doc-list li:hover {
+  transform: scale(1.07);
+  background: rgba(187, 210, 255, 0.9);
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.15);
+}
+
+/* 🧾 Doc name text */
+.doc-name {
+  flex: 1;
+  text-align: left;
+  margin-right: 40px;
+  font-weight: 500;
+  color: #1a1a1a;
+}
+
+/* 🎯 Buttons */
+button {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  font-family: inherit;
+}
+
+.back-btn,
+.upload-btn {
+  padding: 12px 26px;
+  border-radius: 10px;
+  font-size: 1rem;
+  color: white;
+}
+
+.back-btn {
+  background-color: #5a67d8;
+  margin-bottom: 30px;
+}
+.back-btn:hover {
+  background-color: #4c51bf;
+  transform: scale(1.05);
+}
+
+.upload-btn {
+  background-color: #38a169;
+  margin-top: 20px;
+}
+.upload-btn:hover {
+  background-color: #2f855a;
+  transform: scale(1.05);
+}
+
+/* Doc action buttons */
+.doc-actions {
+  display: flex;
+  gap: 22px;
+}
+
+.preview-btn {
+  background-color: #4299e1;
+  color: white;
+  padding: 9px 20px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+}
+.preview-btn:hover {
+  background-color: #3182ce;
+  transform: scale(1.08);
+}
+
+.delete-btn {
+  background-color: #e53e3e;
+  color: white;
+  padding: 9px 20px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+}
+.delete-btn:hover {
+  background-color: #c53030;
+  transform: scale(1.08);
+}
+
+/* Headings */
+h1, h2 {
+  font-weight: 600;
+  color: #1f2937;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+}
+
+h1 {
+  font-size: 2.4rem;
+}
+
+h2 {
+  margin-top: 10px;
+  font-size: 1.6rem;
+}
+/* 🔍 Search Bar Styling */
+.search-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 25px;
+  margin-bottom: 35px;
+}
+
+.search-bar {
+  width: 70%;
+  max-width: 500px;
+  padding: 14px 20px;
+  font-size: 1rem;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.55);
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(8px);
+  transition: all 0.3s ease;
+  color: #1f2937;
+}
+
+.search-bar:focus {
+  outline: none;
+  transform: scale(1.04);
+  background: rgba(255, 255, 255, 0.75);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+/* ✨ Smooth fade-in effect */
+.fade-in {
+  animation: fadeSlide 0.6s ease-in-out;
+}
+
+@keyframes fadeSlide {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ⚙️ Top control layout */
+.top-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 18px;
+  margin: 25px 0 35px;
+}
+
+/* 🗂️ Create Folder Button */
+.create-folder-btn {
+  background-color: #a0c4ff;
+  color: #1f2937;
+  border: none;
+  padding: 12px 22px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+.create-folder-btn:hover {
+  background-color: #90b6f5;
+  transform: scale(1.05);
+}
+
+/* ⋮ Menu Styles */
+.menu-container {
+  position: relative;
+}
+
+.menu-dots {
+  background: rgba(173, 216, 230, 0.8);
+  border: none;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.menu-dots:hover {
+  background: rgba(173, 216, 230, 1);
+  transform: scale(1.1);
+}
+
+.menu-dropdown {
+  position: absolute;
+  top: 45px;
+  right: 0;
+  background: rgba(255, 255, 255, 0.92);
+  border-radius: 10px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  animation: fadeSlide 0.3s ease-in-out;
+  z-index: 10;
+}
+
+.menu-dropdown button {
+  background: none;
+  border: none;
+  padding: 10px 15px;
+  font-size: 0.95rem;
+  text-align: left;
+  cursor: pointer;
+  color: #333;
+}
+.menu-dropdown button:hover {
+  background: rgba(255, 0, 0, 0.1);
+}
+
+/* 🌗 Refined Dark Mode */
+body.dark-mode {
+  background-color: #2d2a3d;
+  color: #f4f4f4;
+}
+
+/* Folder & Docs - Warm tint for dark mode */
+body.dark-mode .folder-card,
+body.dark-mode .doc-list li {
+  background: rgba(255, 215, 180, 0.4); /* soft peachy yellow tint */
+  color: #fff4f4;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+  transition: all 0.3s ease;
+}
+body.dark-mode .folder-card:hover {
+  background: rgba(255, 200, 220, 0.55); /* soft pink hover */
+  transform: scale(1.08);
+}
+
+/* 🌗 Dark Mode Button */
+.theme-toggle {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: rgba(173, 216, 230, 0.75);
+  border: none;
+  border-radius: 50%;
+  font-size: 1.4rem;
+  padding: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.theme-toggle:hover {
+  transform: scale(1.1);
+  background: rgba(173, 216, 230, 1);
+}
+
+/* 📁 Folder grid spacing fix */
+.folder-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 55px; /* increased spacing */
+  justify-items: center;
+  margin-top: 50px;
+}
+
+/* 🧱 Bigger main container */
+.app-container {
+  width: 90%;
+  max-width: 1400px; /* increased main width */
+  margin-top: 60px;
+  padding: 60px 60px 90px;
+  text-align: center;
+  backdrop-filter: blur(10px);
+  animation: fadeIn 0.8s ease-in;
+  border-radius: 25px;
+}
+
+/* 🏠 Home button */
+.home-btn {
+  background-color: #b5d0ff;
+  color: #1f2937;
+  border: none;
+  padding: 12px 28px;
+  border-radius: 12px;
+  font-size: 1.05rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.home-btn:hover {
+  transform: scale(1.07);
+  background-color: #a7c0f5;
+}
+
+/* ✨ Title Styling */
+.app-title {
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  margin-bottom: 20px;
+  color: #1e293b;
+  text-shadow: 0 0 8px rgba(150, 180, 255, 0.4);
+}
+body.dark-mode .app-title {
+  color: #ffe6f0;
+  text-shadow: 0 0 10px rgba(255, 150, 200, 0.5);
+}
+/* 🌌 Refined Aesthetic Dark Mode Background */
+body.dark-mode {
+  background-color: #1c1b29;
+  background-image:
+    radial-gradient(circle at 20% 30%, rgba(255, 182, 193, 0.15), transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(186, 85, 211, 0.12), transparent 50%),
+    radial-gradient(circle at 40% 80%, rgba(147, 112, 219, 0.15), transparent 60%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%238B5CF6' fill-opacity='0.15' d='M0,160L48,154.7C96,149,192,139,288,160C384,181,480,235,576,261.3C672,288,768,288,864,272C960,256,1056,224,1152,213.3C1248,203,1344,213,1392,218.7L1440,224L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z'%3E%3C/path%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: top, center, bottom;
+  background-size: cover, cover, cover;
+  background-attachment: fixed;
+  color: #f5f5f7;
+}
+
+/* Subtle gradient glow overlay */
+body.dark-mode::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 70% 50%, rgba(255, 182, 193, 0.1), transparent 40%),
+              radial-gradient(circle at 30% 80%, rgba(186, 85, 211, 0.08), transparent 50%);
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Keep content above background glow */
+.app-container {
+  position: relative;
+  z-index: 1;
+}
